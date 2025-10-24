@@ -1,0 +1,90 @@
+---
+layout: default
+---
+
+<div class="incident-page">
+  <nav class="incident-nav">
+    <a href="{{ '/' | relative_url }}" class="nav-link">← All Providers</a>
+    {% assign provider = page.path | split: '/' | slice: 1, 1 | first %}
+    <a
+      href="{{ '/source/' | append: provider | append: '/' | relative_url }}"
+      class="nav-link"
+      >{{ provider | capitalize }} Incidents</a
+    >
+  </nav>
+
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title | escape }}</h1>
+      {% if page.incident_date %}
+      <div class="incident-meta">
+        <span class="meta-item">
+          <strong>Date:</strong> {{ page.incident_date }}
+        </span>
+        {% if page.duration %}
+        <span class="meta-item">
+          <strong>Duration:</strong> {{ page.duration }}
+        </span>
+        {% endif %} {% if page.severity %}
+        <span class="meta-item">
+          <strong>Severity:</strong>
+          <span class="status-indicator {{ page.severity }}"></span>{{
+          page.severity | capitalize }}
+        </span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </header>
+
+    <div class="post-content">{{ content }}</div>
+
+    {% if page.original_source %}
+    <footer class="incident-footer">
+      <div class="source-link">
+        <strong>Original Source:</strong>
+        <a href="{{ page.original_source }}" target="_blank" rel="noopener"
+          >{{ page.original_source }}</a
+        >
+      </div>
+    </footer>
+    {% endif %}
+  </article>
+</div>
+
+<style>
+  .incident-nav {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    background: var(--gray-light, #f6f8fa);
+    color: var(--gray-dark, #24292e);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85em;
+    border: 1px solid var(--border-color, #e1e4e8);
+    transition: background-color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    background: var(--border-color, #e1e4e8);
+    text-decoration: none;
+  }
+
+  .incident-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color, #e1e4e8);
+    font-size: 0.9em;
+  }
+
+  .source-link a {
+    color: var(--primary-color, #0366d6);
+    word-break: break-all;
+  }
+</style>

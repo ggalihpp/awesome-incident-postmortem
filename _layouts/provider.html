@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div class="provider-page">
+  <nav class="provider-nav">
+    <a href="{{ '/' | relative_url }}" class="back-link"
+      >← Back to All Providers</a
+    >
+  </nav>
+
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title | escape }}</h1>
+    </header>
+
+    <div class="post-content">{{ content }}</div>
+  </article>
+</div>
+
+<style>
+  .provider-nav {
+    margin-bottom: 20px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: var(--gray-light, #f6f8fa);
+    color: var(--gray-dark, #24292e);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9em;
+    border: 1px solid var(--border-color, #e1e4e8);
+    transition: background-color 0.2s ease;
+  }
+
+  .back-link:hover {
+    background: var(--border-color, #e1e4e8);
+    text-decoration: none;
+  }
+</style>
