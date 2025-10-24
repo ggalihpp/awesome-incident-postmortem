@@ -4,28 +4,13 @@ description: "A curated list of incident postmortem documents from major technol
 url: "https://ggalihpp.github.io"
 baseurl: "/awesome-incident-postmortem"
 author: "ggalihpp"
-email: ""
 
 # Theme and Appearance
 theme: minima
-skin: dark
-
-# Navigation
-header_pages:
-  - index.md
-  - providers.md
-
-# Social Links (optional - uncomment and fill if needed)
-# github_username: ggalihpp
-# twitter_username: your_username
-# linkedin_username: your_username
 
 # Build Settings
 markdown: kramdown
 highlighter: rouge
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
 
 # Plugins
 plugins:
@@ -33,85 +18,26 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# Collections for better organization
-collections:
-  incidents:
-    output: true
-    permalink: /:collection/:name/
-
-# Default layouts
+# Default layouts - simplified
 defaults:
   - scope:
-      path: "source"
-    values:
-      layout: "page"
-  - scope:
-      path: "source/*"
-      type: "pages"
-    values:
-      layout: "provider"
-  - scope:
       path: ""
-      type: "incidents"
     values:
-      layout: "incident"
+      layout: "default"
 
 # Exclude files from processing
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - vendor/
   - .git/
   - .github/
+  - README.md
 
-# Include files
-include:
-  - _pages
-
-# Site Navigation Structure
-navigation:
-  providers:
-    - name: "AWS"
-      path: "/source/aws/"
-      count: 1
-    - name: "Cloudflare"
-      path: "/source/cloudflare/"
-      count: 1
-    - name: "GitHub"
-      path: "/source/github/"
-      count: 1
-    - name: "Google"
-      path: "/source/google/"
-      count: 0
-    - name: "Microsoft"
-      path: "/source/microsoft/"
-      count: 0
-    - name: "Slack"
-      path: "/source/slack/"
-      count: 0
-    - name: "Meta/Facebook"
-      path: "/source/facebook/"
-      count: 0
-    - name: "Netflix"
-      path: "/source/netflix/"
-      count: 0
-    - name: "Stripe"
-      path: "/source/stripe/"
-      count: 0
-    - name: "Others"
-      path: "/source/others/"
-      count: 0
-
-# SEO and Analytics
-google_analytics: "" # Add your GA tracking ID if needed
+# SEO
+title_separator: "|"
 
 # Minima Theme Customization
 minima:
   date_format: "%b %-d, %Y"
-  social_links:
-    # github: ggalihpp
-    # twitter: your_username
