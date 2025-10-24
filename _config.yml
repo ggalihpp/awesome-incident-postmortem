@@ -1,8 +1,8 @@
 # Site Configuration
 title: "Awesome Incident Postmortems"
 description: "A curated list of incident postmortem documents from major technology companies and service providers"
-url: "https://ggalihpp.github.io"
-baseurl: "/awesome-incident-postmortem"
+url: "https://awesome-incident.gapra.id"
+baseurl: "/"
 author: "ggalihpp"
 
 # Theme and Appearance
